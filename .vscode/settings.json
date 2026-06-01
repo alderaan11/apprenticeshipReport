@@ -1,0 +1,37 @@
+{
+  // --- chktex : non installé, on désactive le linter (supprime l'erreur) ---
+  "latex-workshop.linting.chktex.enabled": false,
+  "latex-workshop.linting.chktex.run": "never",
+
+  // --- Compilation : latexmk absent dans BasicTeX → on utilise pdflatex ---
+  // Chemin ABSOLU + PATH explicite car VS Code n'hérite pas de /Library/TeX/texbin.
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex",
+      "command": "/Library/TeX/texbin/pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ],
+      "env": {
+        "PATH": "/Library/TeX/texbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+      }
+    }
+  ],
+
+  // Deux passes de pdflatex (nécessaire pour la table des matières / le cadre TikZ).
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "pdflatex ×2",
+      "tools": ["pdflatex", "pdflatex"]
+    }
+  ],
+
+  // PDF généré à côté de main.tex (dans rapport/).
+  "latex-workshop.latex.outDir": "%DIR%",
+
+  // Recompile à chaque sauvegarde du .tex.
+  "latex-workshop.latex.autoBuild.run": "onSave"
+}

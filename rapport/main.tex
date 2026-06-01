@@ -1,0 +1,97 @@
+%% =====================================================================
+%% Mémoire d'alternance — Master 2 Informatique
+%% Université de Montpellier — Faculté des Sciences — Département Informatique
+%% Auteur : Anaïs Mackow — Entreprise : Namirial SPA
+%%
+%% Compilation : pdflatex main.tex (x2 pour la table des matières)
+%% Contraintes consignes : police 12, texte justifié, pages numérotées.
+%% =====================================================================
+\documentclass[12pt,a4paper,oneside,french]{book}
+
+% ---- Encodage & langue --------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% ---- Mise en page -------------------------------------------------------
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing                 % interligne confortable
+\sloppy                         % évite les débordements en marge (texte justifié par défaut)
+
+% ---- Graphisme & couleurs ----------------------------------------------
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{eso-pic}            % calque pleine page (cadre de couverture)
+\usepackage{tikz}               % dessin du cadre décoratif
+\usetikzlibrary{calc}
+\graphicspath{{../logo/}{logo/}{images/}}
+
+% ---- Tableaux & figures -------------------------------------------------
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{float}
+
+% ---- Code source (extraits commentés — JAMAIS de code entier) ----------
+\usepackage{listings}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codemauve}{rgb}{0.58,0,0.82}
+\lstset{
+  basicstyle=\small\ttfamily,
+  numbers=left, numberstyle=\tiny\color{codegray},
+  keywordstyle=\color{blue}, commentstyle=\color{codegreen},
+  stringstyle=\color{codemauve},
+  breaklines=true, frame=single, showstringspaces=false, tabsize=2,
+}
+
+% ---- En-têtes / pieds de page (numérotation) ---------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---- Liens & glossaire simple ------------------------------------------
+\usepackage[hidelinks]{hyperref}
+
+% =====================================================================
+\begin{document}
+
+% ---- Page de couverture (modèle Montpellier) ---------------------------
+\input{pagedegarde}
+
+% ---- Pages liminaires (numérotation romaine) ---------------------------
+\frontmatter\pagenumbering{roman}
+\input{chapitres/00-remerciements}
+
+\tableofcontents
+\cleardoublepage
+
+% ---- Corps du rapport (numérotation arabe) -----------------------------
+\mainmatter\pagenumbering{arabic}\setcounter{page}{1}
+
+\input{chapitres/01-introduction}
+\input{chapitres/02-entreprise}
+\input{chapitres/03-mission}            % facultatif
+\input{chapitres/04-environnement-technique}
+\input{chapitres/05-veille}             % facultatif
+\input{chapitres/06-travaux}            % partie essentielle
+\input{chapitres/07-conclusion}
+
+% ---- Glossaire ---------------------------------------------------------
+\input{glossaire}
+
+% ---- Bibliographie (décommenter si sources) ----------------------------
+% \bibliographystyle{plain-fr}
+% \bibliography{references}
+
+% ---- Annexes (Gantt obligatoire) ---------------------------------------
+\appendix
+\input{chapitres/08-annexes}
+
+\end{document}

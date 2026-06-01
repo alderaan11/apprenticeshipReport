@@ -1,0 +1,85 @@
+%% =====================================================================
+%% Page de couverture — modèle Université de Montpellier / FDS
+%% Reproduit "logo/Modèle page de couverture stage.PNG"
+%% Remplacer les <...> par les vraies valeurs.
+%% =====================================================================
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+
+% ---- Cadre décoratif (uniquement sur cette page) -----------------------
+% Double liseré : trait épais à l'extérieur + trait fin à l'intérieur.
+\AddToShipoutPictureBG*{%
+  \begin{tikzpicture}[overlay,remember picture]
+    \draw[line width=1.5pt]
+      ($(current page.north west)+(1.5cm,-1.5cm)$)
+      rectangle
+      ($(current page.south east)+(-1.5cm,1.5cm)$);
+    \draw[line width=0.5pt]
+      ($(current page.north west)+(1.7cm,-1.7cm)$)
+      rectangle
+      ($(current page.south east)+(-1.7cm,1.7cm)$);
+  \end{tikzpicture}%
+}
+
+% ---- Bandeau de logos --------------------------------------------------
+% Gauche : sceau UM | Centre : logo entreprise (Namirial) | Droite : Dépt Info
+\noindent
+\begin{minipage}[c]{0.22\textwidth}
+  \centering
+  \includegraphics[width=2.6cm]{LOGO_RVB_grand-UM.jpg}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.34\textwidth}
+  \centering
+  \includegraphics[width=3.2cm]{logo-namirial.png}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.22\textwidth}
+  \centering
+  \includegraphics[width=3cm]{LOGO_DTP_INFORMATIQUE.jpg}
+\end{minipage}
+
+\vspace{1.5cm}
+
+% ---- Établissement -----------------------------------------------------
+{\large\bfseries Université de Montpellier\par}
+\vspace{0.3cm}
+{\large\bfseries Faculté des Sciences\par}
+
+\vspace{1.2cm}
+
+% ---- Diplôme -----------------------------------------------------------
+{\Large\bfseries MASTER 2 INFORMATIQUE\par}
+\vspace{0.3cm}
+{\large Parcours Intelligence Artificielle et Science des Données\par}
+\vspace{2cm}
+
+% ---- Titre du rapport (2 à 5 lignes) -----------------------------------
+{\LARGE\bfseries
+  Conception et industrialisation de solutions d'apprentissage automatique au sein d'une plateforme de confiance numérique\par}
+
+\vspace{2cm}
+
+% ---- Cadre du stage ----------------------------------------------------
+{\large\bfseries effectué à \mbox{Namirial}\par}
+\vspace{0.3cm}
+{\large du 02 septembre 2024 au 18 août 2026\par}
+\vspace{0.3cm}
+{\large par \textbf{Anaïs Mackow}\par}
+
+\vspace{2cm}
+
+% ---- Tuteurs -----------------------------------------------------------
+{\large\bfseries Tuteur en entreprise~: PLANTIER Philippe\par}
+\vspace{0.3cm}
+{\large\bfseries Tuteur à l'Université~: MONTASSIER Mickaël\par}
+
+\vfill
+
+% ---- Confidentialité (À VÉRIFIER — désactivé par défaut) ---------------
+% Décommenter et adapter si Namirial demande la confidentialité :
+% {\large\itshape «~Confidentiel pour une durée de <x> années~»\par}
+
+\vspace{0.5cm}
+{\normalsize Année universitaire 2024--2026\par}
+
+\end{titlepage}

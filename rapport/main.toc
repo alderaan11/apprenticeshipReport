@@ -1,0 +1,40 @@
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{Remerciements}{i}{chapter*.1}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Présentation de l'entreprise}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Namirial SPA}{2}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Organisation et équipe d'accueil}{2}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Place de la mission dans l'entreprise}{2}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Présentation de la mission}{3}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Problématique et besoin métier}{3}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Objectifs et périmètre}{3}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Contraintes}{3}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Notions techniques nécessaires}{3}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Environnement technique}{4}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Langages et frameworks}{4}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Bibliothèques et services}{4}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Outils de gestion de projet et de versioning}{4}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Méthodologie de travail}{4}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Veille technologique et appropriation}{5}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Problème de choix / d'apprentissage}{5}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Comparatif et critères de décision}{5}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Montée en compétence et difficultés}{5}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Travaux effectués}{6}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Tâche / Thème A}{6}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Contexte et objectif}{6}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Conception}{6}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Réalisation}{6}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Tests et validation}{6}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Résultats et livrables}{6}{subsection.6.1.5}%
+\contentsline {section}{\numberline {6.2}Tâche / Thème B}{6}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Tâche / Thème C}{6}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Synthèse transverse}{6}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Conclusion}{7}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Bilan fonctionnel}{7}{section.7.1}%
+\contentsline {section}{\numberline {7.2}État d'avancement à la date de soutenance}{7}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Apports de l'alternance}{7}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Perspectives}{7}{section.7.4}%
+\contentsline {chapter}{Glossaire}{8}{chapter*.6}%
+\contentsline {chapter}{\numberline {A}Diagramme de Gantt}{9}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Extraits de code choisis}{10}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Captures et schémas complémentaires}{11}{appendix.C}%
