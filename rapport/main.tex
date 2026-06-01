@@ -24,9 +24,15 @@
 % ---- Graphisme & couleurs ----------------------------------------------
 \usepackage{graphicx}
 \usepackage{xcolor}
+% --- Charte graphique Namirial (couleurs extraites du site officiel) ---
+\definecolor{namirialTeal}{HTML}{00A69D}   % teal principal
+\definecolor{namirialDeep}{HTML}{00423F}   % teal foncé
+\definecolor{namirialLight}{HTML}{80D3CE}  % teal clair
+\definecolor{namirialDark}{HTML}{111820}   % anthracite (texte)
+\definecolor{namirialBg}{HTML}{E6EEEE}     % fond clair
 \usepackage{eso-pic}            % calque pleine page (cadre de couverture)
-\usepackage{tikz}               % dessin du cadre décoratif
-\usetikzlibrary{calc}
+\usepackage{tikz}               % dessin du cadre décoratif + organigramme
+\usetikzlibrary{calc,positioning}
 \graphicspath{{../logo/}{logo/}{images/}}
 
 % ---- Tableaux & figures -------------------------------------------------

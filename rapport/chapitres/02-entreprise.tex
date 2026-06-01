@@ -1,14 +1,101 @@
 %% 2. Présentation de l'entreprise  [<= 2 pages — STRICT]
 \chapter{Présentation de l'entreprise}
 
-% ATTENTION : ne doit PAS dépasser 2 pages. Rester concis (piège classique).
+% ATTENTION : ne doit PAS dépasser 2 pages. Rester concis.
+% --- Faits vérifiés (sources, juin 2026) — à recouper avant rendu :
+%   * Namirial S.p.A. : fondée en 2000 à Senigallia (Italie) ; QTSP eIDAS depuis 2010.
+%   * Néthéos : fondée 2004, Montpellier, KYC/onboarding ; rachetée par Namirial le 04/11/2021.
+%   * Bain Capital : participation majoritaire annoncée 03/2025 (~1,1 Md€), depuis Ambienta ; clôture été 2025.
+%   * Rapprochement avec Signaturit (Espagne) annoncé mi-2025 → leader paneuropéen du DTM.
+%   Sources : namirial.com, baincapital.com, ambientasgr.com, presse spécialisée.
+%   À PRÉCISER : confirme que ton site est bien l'ex-Néthéos à Montpellier + chiffres récents.
 
-\section{Namirial SPA}
-% Activité, secteur (signature électronique / identité numérique /
-% dématérialisation), quelques chiffres clés.
+\section{Le groupe Namirial}
+
+Namirial S.p.A. est une entreprise italienne fondée en 2000 à Senigallia, dans la
+région des Marches. D'abord éditrice de logiciels destinés aux professionnels et au
+secteur du bâtiment, elle s'est progressivement recentrée sur les services de
+confiance numérique. Elle est certifiée prestataire de services de confiance qualifié
+(\emph{Qualified Trust Service Provider}, QTSP) au sens du règlement européen eIDAS
+(règlement (UE) n\textsuperscript{o}~910/2014) depuis 2010.
+
+Son cœur de métier couvre l'ensemble de la chaîne de la transaction numérique,
+depuis la signature électronique et le cachet électronique jusqu'à l'horodatage
+qualifié, la vérification et l'authentification d'identité, l'archivage à valeur
+probante, la facturation électronique et l'envoi électronique recommandé. Le groupe revendique aujourd'hui plus de 1\,400
+collaborateurs répartis en Europe, en Amérique latine et en Asie, une présence dans
+plus de 90~pays et un réseau de plus de 2\,500 partenaires.
+
+\section{De Netheos à Namirial France}
+
+L'entité française du groupe trouve son origine dans la société \textbf{Néthéos},
+fondée en 2004 et basée à Montpellier. Néthéos s'était imposée comme l'un des
+principaux acteurs français de la vérification d'identité à distance et de l'entrée en
+relation client (\emph{onboarding}), à travers ses solutions de KYC
+(\emph{Know Your Customer}). Namirial a finalisé son acquisition le 4~novembre 2021,
+consolidant ainsi sa position en France et dans les pays francophones et intégrant ces
+briques d'identification et d'\emph{onboarding} à son offre. C'est au sein de cette
+entité, à Montpellier, que se déroule mon alternance.
+
+\section{Un groupe en pleine consolidation européenne}
+
+Le capital de Namirial a connu d'importants mouvements récents. En mars~2025, le fonds
+d'investissement \textbf{Bain Capital} a annoncé l'acquisition d'une participation
+majoritaire dans Namirial auprès de la société italienne \textbf{Ambienta SGR},
+opération valorisant l'entreprise à environ 1,1~milliard d'euros et finalisée à
+l'été~2025. Le groupe est désormais détenu par les fonds Bain Capital, PSG~Equity et
+Ambienta.
+
+Dans la foulée, Namirial s'est rapproché de l'espagnol \textbf{Signaturit Group},
+lui aussi spécialiste de la signature électronique et de l'identité numérique. Annoncé
+au cours de l'année~2025, ce rapprochement a donné naissance à l'un des principaux
+acteurs paneuropéens de la gestion des transactions numériques
+(\emph{Digital Transaction Management}, DTM), en position de leader notamment en Italie,
+en Espagne, en France et en Allemagne, au service d'environ 240\,000 clients dans le
+monde.
 
 \section{Organisation et équipe d'accueil}
-% Service / équipe dans laquelle se déroule l'alternance.
+
+La figure~\ref{fig:organigramme} présente de façon simplifiée l'organisation de
+l'entité dans laquelle s'est déroulée mon alternance. Mon équipe s'inscrit dans la
+division \textbf{Identité \& Onboarding} de Namirial, qui prolonge l'activité
+historique de Néthéos, sous la responsabilité technique de \textbf{Philippe Plantier},
+mon tuteur en entreprise. Cette équipe réunit des profils complémentaires, à la fois
+des développeurs logiciels et des \emph{data scientists}, dont je fais partie. Cette
+proximité entre développement et science des données reflète la nature des produits sur
+lesquels nous travaillons, des solutions de vérification d'identité et d'entrée en
+relation client à distance, où les briques d'apprentissage automatique doivent être
+directement industrialisées dans la plateforme.
+
+% --- Organigramme simplifié (TikZ) — à ajuster si besoin ---
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  every node/.style={font=\small},
+  box/.style={draw=namirialTeal, rounded corners, align=center, fill=namirialBg,
+              text=namirialDark, inner sep=6pt, minimum width=8cm},
+  me/.style={draw=namirialDeep, rounded corners, align=center, fill=namirialLight,
+             text=namirialDark, very thick, inner sep=6pt, minimum width=8cm},
+  node distance=7mm,
+  link/.style={namirialTeal, thick}
+]
+  \node[box] (ceo)    {Massimiliano Pellegrini \\ \textit{CEO}};
+  \node[box, below=of ceo]    (dep) {Pierre Felici \\ \textit{Deputy CEO}};
+  \node[box, below=of dep]    (cto) {Ugo Di Iorio \\ \textit{CTO}};
+  \node[box, below=of cto]    (dir) {Liberio Rignanese \\ \textit{Directeur Identité \& Onboarding}};
+  \node[box, below=of dir]    (mgr) {Philippe Plantier \\ \textit{Technical Manager}, tuteur en entreprise};
+  \node[me,  below=of mgr]    (team){Équipe Identité \& Onboarding \\
+                                     \footnotesize développeurs logiciels \& data scientists \\
+                                     \footnotesize \textbf{(dont moi)}};
+  \draw[link] (ceo) -- (dep);
+  \draw[link] (dep) -- (cto);
+  \draw[link] (cto) -- (dir);
+  \draw[link] (dir) -- (mgr);
+  \draw[link] (mgr) -- (team);
+\end{tikzpicture}
+\caption{Organigramme simplifié de mon rattachement au sein de Namirial.}
+\label{fig:organigramme}
+\end{figure}
 
 \section{Place de la mission dans l'entreprise}
-% Comment la mission s'inscrit dans l'activité de l'équipe.
+% À COMPLÉTER : comment ta mission de data scientist s'inscrit dans l'activité de l'équipe.
