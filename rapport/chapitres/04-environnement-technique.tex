@@ -1,17 +1,43 @@
 %% 4. Environnement technique  [~3-4 pages — SUCCINCT]
-\chapter{Environnement technique}
+\chapter{Environnement technique}\label{ch:env}
 
 % ATTENTION : rester SUCCINCT, éviter l'inventaire lassant.
 % Ne citer que ce qui sert vraiment la compréhension des travaux.
 
 \section{Langages et frameworks}
-% ...
+
+% À COMPLÉTER / CONFIRMER les versions et le détail.
+Mes travaux se sont appuyés principalement sur le langage \textbf{Python}, standard
+de fait en science des données. L'entraînement et l'inférence des modèles de vision
+(notamment l'architecture \textbf{ShuffleNet} employée pour la classification
+colorimétrique) reposent sur un \emph{framework} d'apprentissage profond.
+% À PRÉCISER : PyTorch ou TensorFlow ? version ?
 
 \section{Bibliothèques et services}
-% ...
+
+% Déplacé depuis la présentation de la mission : ces briques sont l'environnement
+% « avec quoi » ; leur usage détaillé est au chap. Travaux.
+Plusieurs briques internes à Namirial ont structuré mon travail quotidien~:
+\begin{itemize}
+  \item \textbf{DocDB}, bibliothèque d'accès aux documents, hébergée sur le dépôt
+        d'artefacts \textbf{Nexus}~;
+  \item le \textbf{Prevent Collect Manager} et la solution \textbf{Prevent},
+        outils internes d'exploitation des données de vérification~;
+  \item le \textbf{Docprocessor} (\emph{LLMdoc}), API développée par mon équipe pour
+        réaliser de l'extraction d'information sur documents au moyen de grands
+        modèles de langage.
+\end{itemize}
+
+Côté outils transverses, la validation de la structure des sorties de modèles s'est
+appuyée sur \textbf{pydantic} (définition de schémas de données typés).
+% À COMPLÉTER : autres bibliothèques réellement utilisées (OpenCV, scikit-learn,
+% pandas, Pillow...), à ne citer que si elles servent la compréhension.
 
 \section{Outils de gestion de projet et de versioning}
 % Git, ticketing, CI/CD...
+% À COMPLÉTER : Git (+ forge : GitLab/GitHub ?), outil de tickets (issues),
+% intégration continue le cas échéant.
 
 \section{Méthodologie de travail}
 % Agile/Scrum, rituels, organisation propre à l'alternance.
+% À COMPLÉTER.

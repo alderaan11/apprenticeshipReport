@@ -1,42 +1,97 @@
 %% 6. Travaux effectués  [PARTIE ESSENTIELLE — le plus gros volume]
-\chapter{Travaux effectués}
+\chapter{Travaux effectués}\label{ch:travaux}
 
 % RÈGLES :
 % - Regrouper les tâches PAR NATURE (pas par chronologie).
 % - Schémas, exemples de code COMMENTÉS bienvenus.
 % - JAMAIS de code entier (extraits "choisis" uniquement).
 % - Avec le chapitre Veille, doit représenter >= la moitié du rapport.
+% Ici : le COMMENT et les RÉSULTATS. Le pourquoi métier est au chap. Mission ;
+% les choix de technos au chap. Veille ; les outils au chap. Environnement.
 
-% ---------------------------------------------------------------
-% Gabarit à dupliquer pour chaque tâche / thème (A, B, C...) :
-% ---------------------------------------------------------------
-
-\section{Tâche / Thème A}
+\section{Classification colorimétrique des photographies d'identité}
 
 \subsection{Contexte et objectif}
-% ...
+Construire un classifieur binaire (couleur / noir et blanc) des photographies
+d'identité, dont la prédiction alimente le contrôle de conformité documentaire
+(problématique détaillée au chap.~\ref{ch:mission}, choix de l'architecture
+\textbf{ShuffleNet} au chap.~\ref{ch:veille}).
 
 \subsection{Conception}
-% Schémas d'architecture, modèle de données, diagrammes.
+% À COMPLÉTER.
+\paragraph{Constitution du jeu de données.}
+% Sources des images, volumétrie, étiquetage couleur/N\&B, équilibrage des classes,
+% précautions de confidentialité (anonymisation des pièces d'identité).
+
+\paragraph{Ingénierie des caractéristiques.}
+% Étude des attributs discriminants entre images couleur et N\&B (statistiques sur
+% les canaux, saturation, espaces colorimétriques...). Schéma bienvenu.
 
 \subsection{Réalisation}
-% Choix techniques + extraits de code commentés (jamais de code entier).
-% Exemple d'extrait :
-% \begin{lstlisting}[language=Java,caption={Extrait commenté}]
-% // ...
-% \end{lstlisting}
+% Choix techniques + extraits de code COMMENTÉS (jamais de code entier).
+% Entraînement du modèle ShuffleNet, paramétrage, gestion du déséquilibre éventuel.
 
 \subsection{Tests et validation}
-% ...
+% Métriques (précision, rappel, matrice de confusion), protocole d'évaluation.
+% IMPORTANT : analyse du BIAIS identifié (sur-classification N\&B des peaux foncées)
+% et mesures prises pour le maîtriser.
 
 \subsection{Résultats et livrables}
-% ...
+% Performances obtenues, intégration de la prédiction dans la règle de conformité.
+% Préciser que l'industrialisation du modèle est intervenue hors de ma contribution.
 
-\section{Tâche / Thème B}
-% (même gabarit)
+\section{Extraction généralisée d'informations (Key Information Extraction)}
+% PARTIE MAJEURE — à développer (même gabarit : contexte, conception, réalisation,
+% tests, résultats). Voir présentation au chap.~\ref{ch:mission}.
+% À COMPLÉTER.
 
-\section{Tâche / Thème C}
-% (même gabarit)
+\section{Optimisation du Docprocessor (LLMdoc)}
+
+\subsection{Contexte et objectif}
+Le \textbf{Docprocessor} est une API interne d'extraction d'information sur documents
+(voir chap.~\ref{ch:env}). L'objectif de cette tâche était d'\textbf{accélérer le
+temps de traitement} de son étape de classification de documents.
+
+\subsection{Réalisation}
+L'implémentation initiale reposait sur \textbf{deux requêtes} successives au modèle~:
+\begin{enumerate}
+  \item une première demandant l'\emph{analyse} du document, avec une limite du
+        nombre de jetons générés pour éviter les réponses trop longues ou les
+        boucles~;
+  \item une seconde demandant la \emph{classification}, dont la sortie était
+        contrainte par une énumération afin de fiabiliser le résultat.
+\end{enumerate}
+
+J'ai proposé de \textbf{fusionner ces deux appels en un seul} en contraignant la
+sortie du modèle à un unique schéma \texttt{pydantic} comportant un attribut
+d'analyse et un attribut de classification.
+% \begin{lstlisting}[language=Python,caption={Schéma de sortie contraint (extrait)}]
+% class ResultatClassification(BaseModel):
+%     analyse: str          # raisonnement intermédiaire borné
+%     classification: TypeDocument  # énumération des classes admissibles
+% \end{lstlisting}
+
+\subsection{Résultats et livrables}
+La fusion en un seul appel a réduit le temps de traitement d'\textbf{environ une
+seconde} (de l'ordre de 3~à 2~secondes par document). À l'échelle des volumes
+traités, ce gain est significatif.
+% À COMPLÉTER : conditions de mesure, éventuel impact sur la qualité de classification.
+
+\section{Projet BUCAP : débundling de documents}
+
+\subsection{Contexte et objectif}
+Séparer un document composite (\emph{bundle}) en ses pièces constitutives. Une
+première version existait mais demeurait fragile~; la difficulté centrale était la
+\textbf{rareté des données} (voir chap.~\ref{ch:mission}), traitée par les pistes
+d'augmentation discutées au chap.~\ref{ch:veille}.
+
+\subsection{Réalisation}
+% À COMPLÉTER : approche retenue, pipeline mise en œuvre, augmentation de données
+% effectivement appliquée.
+
+\subsection{Résultats et livrables}
+% À COMPLÉTER.
 
 \section{Synthèse transverse}
 % Difficultés rencontrées, ce qui reste à faire à la date de soutenance.
+% À COMPLÉTER.

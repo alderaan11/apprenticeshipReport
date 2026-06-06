@@ -1,13 +1,57 @@
 %% 5. Veille technologique / Appropriation scientifique  (FACULTATIF)
 %% COMPTE dans la règle "Veille + Travaux >= 50 % du rapport".
 %% À développer si pertinent ; sinon basculer ce contenu dans les Travaux.
-\chapter{Veille technologique et appropriation}
+\chapter{Veille technologique et appropriation}\label{ch:veille}
+
+% Ce chapitre accueille les CHOIX entre technologies et les APPRENTISSAGES.
+% Y ont été déplacés : le choix d'architecture (ShuffleNet), l'évaluation des
+% modèles d'OCR, et l'exploration des pistes d'augmentation de données (BUCAP).
 
 \section{Problème de choix / d'apprentissage}
-% Choix d'une techno parmi plusieurs, ou domaine nouveau à maîtriser.
+
+\subsection{Choix de l'architecture pour la classification colorimétrique}
+
+Pour la classification colorimétrique des photographies d'identité (voir
+chap.~\ref{ch:travaux}), une recherche documentaire a précédé le choix du modèle.
+L'architecture retenue est \textbf{ShuffleNet}, dérivée de \textbf{ResNet} mais
+sensiblement plus rapide grâce à ses convolutions par groupes et à l'opération de
+\emph{channel shuffle}. Ce choix répond directement à la contrainte
+d'industrialisation~: obtenir un modèle léger et rapide à l'inférence, compatible
+avec une intégration en production.
+% À COMPLÉTER : alternatives écartées et critères précis (précision/latence/taille).
+
+\subsection{Évaluation de modèles d'OCR de nouvelle génération}
+
+À partir d'octobre~2025, plusieurs modèles d'OCR de nouvelle génération ont été
+publiés, annonçant une lecture plus performante et une restitution structurée du
+contenu des documents (\emph{markdown} et tableaux) — capacité qui nous intéressait
+particulièrement.
 
 \section{Comparatif et critères de décision}
-% ...
+
+\subsection{Conclusions de l'évaluation des OCR}
+
+L'évaluation comparative de ces modèles s'est révélée \textbf{décevante}~: la qualité
+de restitution attendue n'était pas au rendez-vous et, du fait de leur nouveauté, ces
+modèles étaient parfois difficiles à mettre en \oe uvre pour l'inférence. La
+conclusion a donc été de ne pas les retenir en l'état.
+% À COMPLÉTER : critères d'évaluation (jeux de test, métriques) et modèles comparés.
+
+\subsection{Pistes d'augmentation de données pour le projet BUCAP}
+
+Le projet BUCAP (\emph{débundling} de documents, voir chap.~\ref{ch:travaux}) se
+heurtait à une pénurie de données~: 21~exemples seulement, à la vérité terrain
+incertaine. Plusieurs stratégies d'\textbf{augmentation de données} ont été
+explorées et mises en regard~:
+\begin{itemize}
+  \item la recherche de \textbf{jeux de données publics} comparables~;
+  \item la mise en place d'une chaîne d'\textbf{\emph{inpainting}}~;
+  \item la \textbf{reconstruction de nouvelles données} à partir des exemples
+        existants.
+\end{itemize}
+% À COMPLÉTER : critères de comparaison et piste finalement retenue.
 
 \section{Montée en compétence et difficultés}
 % Le récit de l'appropriation (et des "souffrances", dixit les consignes).
+% À COMPLÉTER : domaines neufs abordés (vision profonde, LLM appliqués aux documents,
+% contraintes de données réelles), difficultés rencontrées et comment surmontées.
