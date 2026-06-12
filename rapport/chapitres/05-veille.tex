@@ -1,57 +1,45 @@
-%% 5. Veille technologique / Appropriation scientifique  (FACULTATIF)
+%% 5. Veille technologique  (FACULTATIF mais valorisé)
 %% COMPTE dans la règle "Veille + Travaux >= 50 % du rapport".
-%% À développer si pertinent ; sinon basculer ce contenu dans les Travaux.
-\chapter{Veille technologique et appropriation}\label{ch:veille}
+\chapter{Veille technologique}\label{ch:veille}
 
-% Ce chapitre accueille les CHOIX entre technologies et les APPRENTISSAGES.
-% Y ont été déplacés : le choix d'architecture (ShuffleNet), l'évaluation des
-% modèles d'OCR, et l'exploration des pistes d'augmentation de données (BUCAP).
+% Ce chapitre décrit la veille technique CONTINUE menée tout au long de
+% l'alternance. La veille spécifique à chaque projet (choix d'architecture,
+% évaluation d'OCR, pistes d'augmentation de données) est désormais présentée
+% directement dans le chapitre Travaux (\ref{ch:travaux}).
 
-\section{Problème de choix / d'apprentissage}
+Tout au long de mon alternance, le suivi des évolutions technologiques a constitué
+une activité \textbf{continue}, menée en parallèle des missions proprement dites. Le
+domaine des grands modèles de langage et de leur mise en production évoluant à un
+rythme particulièrement soutenu, cette veille était indispensable pour maintenir à
+l'état de l'art nos outils, au premier rang desquels le \textbf{Docprocessor} (voir
+chap.~\ref{ch:env}), et pour anticiper les opportunités d'amélioration.
 
-\subsection{Choix de l'architecture pour la classification colorimétrique}
+\section{Suivi des nouvelles versions de vLLM}
 
-Pour la classification colorimétrique des photographies d'identité (voir
-chap.~\ref{ch:travaux}), une recherche documentaire a précédé le choix du modèle.
-L'architecture retenue est \textbf{ShuffleNet}, dérivée de \textbf{ResNet} mais
-sensiblement plus rapide grâce à ses convolutions par groupes et à l'opération de
-\emph{channel shuffle}. Ce choix répond directement à la contrainte
-d'industrialisation~: obtenir un modèle léger et rapide à l'inférence, compatible
-avec une intégration en production.
-% À COMPLÉTER : alternatives écartées et critères précis (précision/latence/taille).
+\textbf{vLLM} est le moteur d'inférence et de service open source sur lequel
+reposent nos déploiements de grands modèles de langage. Son développement étant très
+actif, j'ai assuré un \textbf{suivi régulier de ses nouvelles versions} afin
+d'identifier les apports susceptibles de bénéficier à nos déploiements.
+% À COMPLÉTER : versions suivies, apports concrets (gestion mémoire / PagedAttention,
+% débit, sortie structurée, quantification...), et impact sur nos déploiements.
+d'une mise à jour à une autre, les performances de mes modèles pouvaient variés (genre il bouclait)
 
-\subsection{Évaluation de modèles d'OCR de nouvelle génération}
+\section{Serveurs de modèles et solutions de service}
 
-À partir d'octobre~2025, plusieurs modèles d'OCR de nouvelle génération ont été
-publiés, annonçant une lecture plus performante et une restitution structurée du
-contenu des documents (\emph{markdown} et tableaux) — capacité qui nous intéressait
-particulièrement.
+% À COMPLÉTER : panorama des serveurs de modèles et solutions de service suivis et
+% comparés (vLLM et alternatives), critères de comparaison (débit, latence, coût,
+% fonctionnalités supportées) et ce qui a orienté nos choix d'infrastructure.
+j'ai du commencé à veilelr sur docprocessor par grafana car à un moment j'ai travaillé sur une optimisation en temps de la pipeline en passant de deux requêtes à une requêtes qui faisait tous.
+sauf que du coup fallait vraiment monitorer que tout fonctionne.
 
-\section{Comparatif et critères de décision}
 
-\subsection{Conclusions de l'évaluation des OCR}
 
-L'évaluation comparative de ces modèles s'est révélée \textbf{décevante}~: la qualité
-de restitution attendue n'était pas au rendez-vous et, du fait de leur nouveauté, ces
-modèles étaient parfois difficiles à mettre en \oe uvre pour l'inférence. La
-conclusion a donc été de ne pas les retenir en l'état.
-% À COMPLÉTER : critères d'évaluation (jeux de test, métriques) et modèles comparés.
+\section{Fonctionnalités et tendances émergentes}
+pour entraîner les vlm, j'ai utilisé unsloth qui une surcouche. ce moteur est basé sur les libraries transformers, trl etc donc c'est assez compliqué de faire quelque chose qui respecte toutes les mise à jour
+sachant que le monde de l'ia générative va très très vite. du coup c'est vraiment du code auto généré et à base de monkey-patch tout le temps donc pareil d'une version à une autre beaucoup de choses pouvaient changer.
 
-\subsection{Pistes d'augmentation de données pour le projet BUCAP}
 
-Le projet BUCAP (\emph{débundling} de documents, voir chap.~\ref{ch:travaux}) se
-heurtait à une pénurie de données~: 21~exemples seulement, à la vérité terrain
-incertaine. Plusieurs stratégies d'\textbf{augmentation de données} ont été
-explorées et mises en regard~:
-\begin{itemize}
-  \item la recherche de \textbf{jeux de données publics} comparables~;
-  \item la mise en place d'une chaîne d'\textbf{\emph{inpainting}}~;
-  \item la \textbf{reconstruction de nouvelles données} à partir des exemples
-        existants.
-\end{itemize}
-% À COMPLÉTER : critères de comparaison et piste finalement retenue.
+% À COMPLÉTER : fonctionnalités « tendance » suivies (sortie structurée / contrainte
+% par schéma, nouveaux modèles, OCR de nouvelle génération...) et veille sur les
+% usages applicables à nos produits de vérification d'identité.
 
-\section{Montée en compétence et difficultés}
-% Le récit de l'appropriation (et des "souffrances", dixit les consignes).
-% À COMPLÉTER : domaines neufs abordés (vision profonde, LLM appliqués aux documents,
-% contraintes de données réelles), difficultés rencontrées et comment surmontées.

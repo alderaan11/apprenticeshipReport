@@ -1,18 +1,59 @@
 %% 1. Introduction  [~2 pages]
-\chapter{Introduction}
+\chapter{Introduction}\label{ch:intro}
 
 % - Contexte : place dans le cursus (M2 Info Montpellier, alternance),
 %   entreprise (Namirial SPA), dates.
-% - Sujet initial de la mission en quelques phrases.
+% - Présentation succincte des missions.
+% - Notions techniques nécessaires à la compréhension de la suite.
 % - Annonce du plan.
-% ATTENTION : ne pas hypertrophier l'introduction. Si le sujet demande
-% beaucoup de contexte, le déporter dans le chapitre "Présentation de la mission".
 
 \section*{Contexte}
-% ...
 
-\section*{Sujet de la mission}
-% ...
+Ce mémoire rend compte de mon alternance de Master~2 Informatique à l'Université de
+Montpellier (Faculté des Sciences), effectuée au sein de \textbf{Namirial SPA}, dans
+la division \textbf{Identité \& Onboarding}.
+% À COMPLÉTER : dates précises de l'alternance, rythme, équipe de rattachement.
+
+\section*{Présentation des missions}
+
+Au cours de cette alternance, j'ai contribué à deux missions principales, complétées
+par plusieurs missions annexes. Les deux missions principales s'inscrivent dans le
+traitement automatisé des pièces d'identité. La première relève de la \textbf{lutte
+contre la fraude documentaire}, la seconde de l'\textbf{extraction d'informations}.
+Les missions annexes, plus ponctuelles, m'ont permis d'aborder d'autres facettes du
+traitement intelligent de documents, à savoir l'évaluation de modèles d'OCR de
+nouvelle génération, l'optimisation d'un service interne d'extraction et un projet
+client de \emph{débundling} de documents.
+
+Toutes partageaient un même contexte, celui des produits de vérification d'identité.
+Les modèles d'apprentissage automatique n'y sont pas une fin en soi. Ils doivent être
+directement industrialisés dans la plateforme et satisfaire des exigences fortes de
+fiabilité, de robustesse et de conformité.
+
+\section*{Notions techniques nécessaires}
+
+La compréhension des chapitres suivants suppose quelques notions de base.
+
+\begin{itemize}
+  \item les \textbf{réseaux de neurones convolutifs} (CNN) pour la classification
+        d'images, et en particulier les architectures \textbf{ResNet} (connexions
+        résiduelles) et \textbf{ShuffleNet}, sa variante allégée ;
+  \item les notions d'\textbf{ingénierie des caractéristiques} (\emph{feature
+        engineering}) et de représentation de la couleur (espaces colorimétriques) ;
+  \item les principes de l'\textbf{OCR} et de l'\textbf{extraction d'informations
+        clés} (\emph{Key Information Extraction}) ;
+  \item l'usage de \textbf{grands modèles de langage} pour l'analyse de documents et
+        la \textbf{contrainte de leur sortie} par un schéma typé ou une énumération ;
+  \item les techniques d'\textbf{augmentation de données} (\emph{data augmentation}),
+        dont l'\emph{inpainting}, face à un volume de données limité.
+\end{itemize}
 
 \section*{Organisation du mémoire}
-% ...
+
+Après une présentation de l'entreprise, le chapitre \textbf{Environnement technique}
+pose les bases sur lesquelles reposent les projets, à savoir les langages, les
+bibliothèques et les outils internes mobilisés. Le chapitre \textbf{Travaux
+effectués} constitue le cœur du mémoire et traite chaque projet de bout en bout, de
+sa problématique à ses résultats. Le chapitre \textbf{Veille technologique} relate le
+suivi continu des évolutions techniques mené tout au long de l'alternance. La
+conclusion dresse enfin un bilan fonctionnel et personnel.

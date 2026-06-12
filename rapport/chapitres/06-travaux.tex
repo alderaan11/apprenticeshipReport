@@ -6,19 +6,63 @@
 % - Schémas, exemples de code COMMENTÉS bienvenus.
 % - JAMAIS de code entier (extraits "choisis" uniquement).
 % - Avec le chapitre Veille, doit représenter >= la moitié du rapport.
-% Ici : le COMMENT et les RÉSULTATS. Le pourquoi métier est au chap. Mission ;
-% les choix de technos au chap. Veille ; les outils au chap. Environnement.
+% Chaque projet est traité DE BOUT EN BOUT : le POURQUOI (problématique, besoin
+% métier, contraintes) puis le COMMENT et les RÉSULTATS. Le contexte général est en
+% introduction ; les outils au chap. Environnement ; la veille continue au chap. Veille.
 
 \section{Classification colorimétrique des photographies d'identité}
 
-\subsection{Contexte et objectif}
-Construire un classifieur binaire (couleur / noir et blanc) des photographies
-d'identité, dont la prédiction alimente le contrôle de conformité documentaire
-(problématique détaillée au chap.~\ref{ch:mission}, choix de l'architecture
-\textbf{ShuffleNet} au chap.~\ref{ch:veille}).
+\subsection{Problématique et besoin métier}
+
+Les pièces d'identité sont des documents fortement normés, c'est-à-dire que pour un
+type de document et un pays donnés, la nature de la photo d'identité du titulaire est
+imposée par les spécifications officielles. Celles-ci exigent selon les cas une photo
+en couleur ou en noir et blanc. Une photo ne respectant pas la règle attendue
+constitue donc un indice de non-conformité, voire de falsification.
+
+L'objectif de cette mission était de \textbf{déterminer automatiquement si la
+photographie d'identité d'un document est en couleur ou en noir et blanc}, puis de
+confronter ce résultat à la règle attendue pour le type de document concerné, afin
+d'alimenter le dispositif de détection de fraude.
+
+Le recours à un modèle d'apprentissage automatique se justifie par les limites d'une
+approche purement déterministe. Une simple analyse des canaux chromatiques se révèle
+insuffisante dans les cas ambigus. Par exemple, une photographie réellement en
+couleur, mais peu contrastée et présentant un fond clair, pouvait être prise à tort
+pour une image en noir et blanc. À l'inverse, un point de \textbf{vigilance éthique}
+a été identifié, avec le risque de \textbf{biais} conduisant à classer plus
+fréquemment en noir et blanc les photographies de personnes à la peau foncée. Ces
+situations, fréquentes en conditions réelles (qualité de numérisation variable,
+éclairage, compression), appelaient une décision plus fine qu'un seuillage ne peut
+offrir, et imposaient une attention particulière à l'équité du modèle.
+
+\subsection{Objectifs, périmètre et contraintes}
+
+Ce premier projet a été co-conduit avec une collègue elle aussi en alternance, et nous
+l'avons mené de bout en bout. Il nous a permis de nous familiariser avec les outils
+utilisés par l'entreprise. Le périmètre incluait la constitution du jeu de données,
+l'étude des caractéristiques discriminantes et l'entraînement du modèle. La
+\textbf{mise en industrialisation} du modèle, intervenue après ma contribution, en
+était exclue, même si j'ai pu en suivre les enjeux.
+
+Le cahier des charges imposait un modèle très petit et très efficient. Il ne devait
+pas produire de faux positif, car ce contrôle de couleur ne devait en aucun cas être
+bloquant.
+% À COMPLÉTER / À AFFINER. Pistes : confidentialité des pièces d'identité (RGPD,
+% anonymisation), volume et déséquilibre éventuel des classes, hétérogénéité des
+% acquisitions, maîtrise du biais évoqué ci-dessus.
 
 \subsection{Conception}
-% À COMPLÉTER.
+
+\paragraph{Recherche documentaire et choix d'architecture.}
+Le choix du modèle a été précédé d'une \textbf{recherche documentaire}. L'architecture
+retenue est \textbf{ShuffleNet}, dérivée de \textbf{ResNet} mais sensiblement plus
+rapide grâce à ses convolutions par groupes et à l'opération de \emph{channel
+shuffle}. Cette architecture répond directement à la contrainte d'industrialisation
+exposée ci-dessus, à savoir obtenir un modèle léger et rapide à l'inférence,
+compatible avec une intégration en production.
+% À COMPLÉTER : alternatives écartées et critères précis (précision/latence/taille).
+
 \paragraph{Constitution du jeu de données.}
 % Sources des images, volumétrie, étiquetage couleur/N\&B, équilibrage des classes,
 % précautions de confidentialité (anonymisation des pièces d'identité).
@@ -41,9 +85,42 @@ d'identité, dont la prédiction alimente le contrôle de conformité documentai
 % Préciser que l'industrialisation du modèle est intervenue hors de ma contribution.
 
 \section{Extraction généralisée d'informations (Key Information Extraction)}
-% PARTIE MAJEURE — à développer (même gabarit : contexte, conception, réalisation,
-% tests, résultats). Voir présentation au chap.~\ref{ch:mission}.
+
+\subsection{Problématique et besoin métier}
+Cette seconde mission portait sur une \textbf{approche généralisée de l'extraction
+d'informations clés} (\emph{Key Information Extraction}) appliquée aux pièces
+d'identité.
+% À COMPLÉTER — partie majeure du mémoire.
+%   - Besoin métier : quels champs extraire, depuis quels documents, et quel
+%     processus existant (saisie manuelle ? OCR dédié par modèle de document ?)
+%     cette approche « généralisée » vient remplacer.
+%   - En quoi l'approche est « généralisée » (indépendante du type/pays de document)
+%     et pourquoi c'est un enjeu (passage à l'échelle, maintenance).
+%   - Objectifs, périmètre, contraintes (volumétrie, fiabilité, conformité).
+
+\subsection{Conception}
 % À COMPLÉTER.
+
+\subsection{Réalisation}
+% À COMPLÉTER.
+
+\subsection{Résultats et livrables}
+% À COMPLÉTER.
+
+\section{Évaluation de modèles d'OCR de nouvelle génération}
+
+\subsection{Contexte et objectif}
+À partir d'octobre~2025, une série de modèles d'OCR de nouvelle génération a été
+publiée, annonçant de meilleures performances de lecture et une restitution
+structurée du contenu (\emph{markdown}, tableaux), une capacité qui nous intéressait
+particulièrement. J'ai été chargée d'en évaluer l'intérêt pour nos besoins.
+
+\subsection{Résultats et conclusions}
+L'évaluation comparative s'est révélée \textbf{décevante}. La qualité de restitution
+attendue n'était pas au rendez-vous et, du fait de leur nouveauté, ces modèles
+étaient parfois difficiles à mettre en \oe uvre pour l'inférence. La conclusion a donc
+été de ne pas les retenir en l'état.
+% À COMPLÉTER : critères d'évaluation (jeux de test, métriques) et modèles comparés.
 
 \section{Optimisation du Docprocessor (LLMdoc)}
 
@@ -77,13 +154,25 @@ seconde} (de l'ordre de 3~à 2~secondes par document). À l'échelle des volumes
 traités, ce gain est significatif.
 % À COMPLÉTER : conditions de mesure, éventuel impact sur la qualité de classification.
 
-\section{Projet BUCAP : débundling de documents}
+\section{Projet BUCAP, débundling de documents}
 
 \subsection{Contexte et objectif}
-Séparer un document composite (\emph{bundle}) en ses pièces constitutives. Une
-première version existait mais demeurait fragile~; la difficulté centrale était la
-\textbf{rareté des données} (voir chap.~\ref{ch:mission}), traitée par les pistes
-d'augmentation discutées au chap.~\ref{ch:veille}.
+BUCAP est un projet client dont l'objectif est de séparer un document composite
+(\emph{bundle}) en ses pièces constitutives. Une première version existait mais
+demeurait fragile. La difficulté centrale tenait à la \textbf{rareté des données},
+avec seulement 21~exemples annotés et une vérité terrain (découpage des pages) très
+incertaine, au point que les clients eux-mêmes divergeaient sur le découpage attendu.
+
+\subsection{Conception et stratégies d'augmentation de données}
+Plusieurs stratégies d'\textbf{augmentation de données} ont été explorées et mises en
+regard, notamment
+\begin{itemize}
+  \item la recherche de \textbf{jeux de données publics} comparables ;
+  \item la mise en place d'une chaîne d'\textbf{\emph{inpainting}} ;
+  \item la \textbf{reconstruction de nouvelles données} à partir des exemples
+        existants.
+\end{itemize}
+% À COMPLÉTER : critères de comparaison et piste finalement retenue.
 
 \subsection{Réalisation}
 % À COMPLÉTER : approche retenue, pipeline mise en œuvre, augmentation de données

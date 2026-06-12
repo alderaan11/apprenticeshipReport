@@ -1,5 +1,6 @@
 %% 4. Environnement technique  [~3-4 pages — SUCCINCT]
 \chapter{Environnement technique}\label{ch:env}
+Je travaille sur machine distantes. on a 3 avec des GPUS donc en ssh.
 
 % ATTENTION : rester SUCCINCT, éviter l'inventaire lassant.
 % Ne citer que ce qui sert vraiment la compréhension des travaux.
@@ -12,6 +13,8 @@ de fait en science des données. L'entraînement et l'inférence des modèles de
 (notamment l'architecture \textbf{ShuffleNet} employée pour la classification
 colorimétrique) reposent sur un \emph{framework} d'apprentissage profond.
 % À PRÉCISER : PyTorch ou TensorFlow ? version ?
+pour le langage c'est exclusivmenet du python.
+
 
 \section{Bibliothèques et services}
 
@@ -38,6 +41,15 @@ appuyée sur \textbf{pydantic} (définition de schémas de données typés).
 % À COMPLÉTER : Git (+ forge : GitLab/GitHub ?), outil de tickets (issues),
 % intégration continue le cas échéant.
 
+Pour le versionnage de projet on avait un Gitlab avec un CI/CD. On versionne les dataset sur DVC qui est directement connecté à un bucket S3
+pour docprocessor c'est sur k9s sur cluster avec des clés AWS pour faire des mise en validation, integration et production.
+la boîte a aussi un nexus pour host c'est librairie du style DocDB.
+
 \section{Méthodologie de travail}
 % Agile/Scrum, rituels, organisation propre à l'alternance.
 % À COMPLÉTER.
+
+pour la méthodologie on a des weekly où chacun parle de ce qu'il a fait et ce qu'on compte faire. on voit s'il y a de nouveaux projets.
+pour l'organisation de l'alternance j'ai commencé en M1 et sinon j'ai vraiment été intégrée comme membre à part entière de l'équipe en me donnant la responsabilité d'un projet
+tout en étant encadré si jamais j'avais besoin d'aide ou de support.
+ 
